@@ -175,7 +175,10 @@
         if ([dataSource respondsToSelector:@selector(advancedPicker:viewForComponent:inRect:)]) {
             view = [dataSource advancedPicker:self viewForComponent:component inRect:viewRect];
         } else {
+#pragma GCC diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
             view = [dataSource advancedPicker:self viewForComponent:component];
+#pragma GCC diagnostic pop
         }
 
         view.frame = viewRect;
